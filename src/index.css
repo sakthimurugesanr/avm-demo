@@ -1,0 +1,85 @@
+/* Import Inter + Poppins */
+
+
+/* Apply globally */
+body {
+  font-family: "Inter", "Poppins", "Arial", sans-serif;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.hover\:pause-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Wrapper */
+.scroll-wrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Scrolling Row */
+.scroll-row {
+  display: inline-flex;
+  gap: 40px;
+  white-space: nowrap;
+}
+
+/* Each Item */
+.service-item {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 8px 20px;
+  background: #eaeaf0;
+  border-radius: 10px;
+  display: inline-block;
+  white-space: nowrap;
+  
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+
+
+/* Animations */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Apply Animations */
+.animate-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.animate-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+
+
+@import "tailwindcss" 

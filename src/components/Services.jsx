@@ -18,6 +18,22 @@ const row1 = [
   "Gold Plating",
   "Lacquer Coating",
   "Flag Poles",
+   "Electro Plating",
+  "Nickel Plating",
+  "Copper Plating",
+  "Silver Plating",
+  "Brass Plating",
+  "Gold Plating",
+  "Lacquer Coating",
+  "Flag Poles",
+  "Electro Plating",
+  "Nickel Plating",
+  "Copper Plating",
+  "Silver Plating",
+  "Brass Plating",
+  "Gold Plating",
+  "Lacquer Coating",
+  "Flag Poles", 
 ];
 
 const row2 = [
@@ -41,11 +57,31 @@ const row2 = [
    "Brass Church Cross",
   "Golden Brass Flag Light",
   "Brass Thiruvatchi",
+    "Gopuram Kalasam",
+  "Flagpole",
+  "Brass Church Cross",
+  "Brass Diya",
+  "Brass Hand Bell",
+  "Temple Dwajashthambam",
+  "Steel Donation Box",
+   "Brass Church Cross",
+  "Golden Brass Flag Light",
+  "Brass Thiruvatchi",
+  "Gopuram Kalasam",
+  "Flagpole",
+  "Brass Church Cross",
+  "Brass Diya",
+  "Brass Hand Bell",
+  "Temple Dwajashthambam",
+  "Steel Donation Box",
+   "Brass Church Cross",
+  "Golden Brass Flag Light",
+  "Brass Thiruvatchi",
 ];
 
 const OurServices = () => {
   return (
-    <section className="py-5 ">
+    <section className="py-3 ">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
         Our <span className="text-blue-600">Services</span>
       </h2>
@@ -57,26 +93,34 @@ const OurServices = () => {
       >
 
         {/* Row 1 (Left → Right) */}
-        <div className="scroll-wrapper group">
-          <div className="scroll-row animate-left group-hover:[animation-play-state:paused]">
-            {[...row1, ...row1].map((item, index) => (
-              <span key={index} className="service-item">
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
+       {/* Row 1 (Left → Right) */}
+<div className="scroll-wrapper overflow-hidden group">
+  <div className="scroll-row animate-left group-hover:[animation-play-state:paused] flex gap-4 flex-nowrap">
+    {[...row1, ...row1].map((item, index) => (
+      <span
+        key={index}
+        className="service-item text-xs sm:text-sm md:text-base px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full whitespace-nowrap text-gray-900 font-medium shadow-sm hover:scale-105 transition-transform"
+      >
+        {item}
+      </span>
+    ))}
+  </div>
+</div>
 
-        {/* Row 2 (Right → Left) */}
-        <div className="scroll-wrapper group mt-8">
-          <div className="scroll-row animate-right group-hover:[animation-play-state:paused]">
-            {[...row2, ...row2].map((item, index) => (
-              <span key={index} className="service-item">
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
+{/* Row 2 (Right → Left) */}
+<div className="scroll-wrapper overflow-hidden group mt-4 sm:mt-6">
+  <div className="scroll-row animate-right group-hover:[animation-play-state:paused] flex gap-4 flex-nowrap">
+    {[...row2, ...row2].map((item, index) => (
+      <span
+        key={index}
+        className="service-item text-xs sm:text-sm md:text-base px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full whitespace-nowrap text-gray-900 font-medium shadow-sm hover:scale-105 transition-transform"
+      >
+        {item}
+      </span>
+    ))}
+  </div>
+</div>
+
         
         
       </div>

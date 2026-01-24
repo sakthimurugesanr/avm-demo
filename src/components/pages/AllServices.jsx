@@ -27,6 +27,7 @@ import goldplating from '../../assets/electro/goldplating.webp'
 import lacker from '../../assets/electro/lacker.webp'
 import nickel from '../../assets/electro/nickel.jpg'
 import silverplating from '../../assets/electro/silverplating.jpg'
+import ReadMoreText from "./Readmore";
 
 
 
@@ -223,7 +224,7 @@ This donation box perfectly blends functionality, security, and timeless artistr
                         <div
                             ref={(el) => (sectionRefs.current[item.id] = el)}
                             key={item.id}
-                            className="grid md:grid-cols-2 gap-10 items-center"
+                            className="p-2 grid md:grid-cols-2 gap-10 items-center rounded-2xl bg-blue-100"
                         >
                             {/* IMAGE */}
                             <div data-aos="fade-up" className="flex justify-center">
@@ -242,9 +243,12 @@ This donation box perfectly blends functionality, security, and timeless artistr
                                 <h3 className="text-xl md:text-2xl font-semibold mb-3 text-blue-900">
                                     {item.title}
                                 </h3>
-                                <p className="text-gray-700 text-base leading-relaxed">
-                                    {item.desc}
-                                </p>
+                                 
+                                    <ReadMoreText
+                                            text={item.desc}
+                                              maxLength={400}
+                                            />
+                              
                             </div>
                         </div>
                     ))}
@@ -256,11 +260,11 @@ This donation box perfectly blends functionality, security, and timeless artistr
                             ref={(el) => (sectionRefs.current[item.id] = el)}
 
                             data-aos="fade-up"
-                            className="grid md:grid-cols-2 gap-10 items-center"
+                            className="p-2 grid md:grid-cols-2 gap-10 items-center rounded-2xl bg-blue-100"
                         >
                             {/* IMAGE */}
-                            <div className="flex justify-center">
-                                <div className="w-full max-w-[320px] aspect-3/4 bg-white border rounded-lg overflow-hidden">
+                            <div className=" flex justify-center">
+                                <div className=" w-full max-w-[320px] aspect-3/4 bg-white border rounded-lg overflow-hidden">
                                     <img
                                         src={item.img}
                                         alt={item.title}

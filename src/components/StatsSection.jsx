@@ -1,50 +1,54 @@
 import React from "react";
 import CountUp from "react-countup";
 import { FaUsers, FaCogs, FaProjectDiagram } from "react-icons/fa";
+import { useInView } from "react-intersection-observer";
 
 export default function StatsSection() {
+  // useInView hook
+  const { ref, inView } = useInView({
+    threshold: 0.3, // trigger when 30% visible
+    triggerOnce: true, // only animate once
+  });
+
   return (
-    <section className="w-full bg-blue-100">
-      <div className="max-w-6xl mx-auto grid grid-cols-3 gap-3 sm:gap-6 px-3 sm:px-4 items-center text-center">
+    <section className="w-full bg-gray-50 py-6 sm:py-10" ref={ref}>
+      <div className="max-w-6xl mx-auto grid grid-cols-3 gap-4 sm:gap-8 px-4 text-center">
 
         {/* Clients */}
-        <div className="py-3 sm:p-5 rounded-2xl hover:scale-105 transition duration-300
-                        md:flex md:flex-col md:justify-center md:items-center">
-          <FaUsers className="mx-auto text-blue-600 text-base sm:text-3xl mb-1 sm:mb-2" />
-          <h2 className="font-extrabold text-sm sm:text-3xl lg:text-4xl leading-tight">
-            <span className="bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-              <CountUp end={1000} suffix="+" duration={3} />
-            </span>
+        <div className="bg-white rounded-xl p-3 sm:p-6  transition ">
+          <FaUsers className="mx-auto text-blue-600 text-lg sm:text-3xl mb-1 sm:mb-3" />
+          
+          <h2 className="font-bold text-base sm:text-3xl lg:text-4xl text-gray-900">
+            {inView ? <CountUp end={1000} suffix="+" duration={3} /> : 0}
           </h2>
-          <p className="text-[10px] sm:text-sm lg:text-base mt-1 opacity-90 font-medium">
+
+          <p className="text-[11px] sm:text-sm lg:text-base text-gray-500 mt-1">
             Clients
           </p>
         </div>
 
         {/* Services */}
-        <div className="py-3 sm:p-5 rounded-2xl hover:scale-105 transition duration-300
-                        md:flex md:flex-col md:justify-center md:items-center">
-          <FaCogs className="mx-auto text-green-600 text-base sm:text-3xl mb-1 sm:mb-2" />
-          <h2 className="font-extrabold text-sm sm:text-3xl lg:text-4xl leading-tight">
-            <span className="bg-linear-to-r from-green-400 via-blue-500 to-purple-600 text-transparent bg-clip-text">
-              <CountUp end={10} suffix="+" duration={3} />
-            </span>
+        <div className="bg-white rounded-xl p-3 sm:p-6  transition ">
+          <FaCogs className="mx-auto text-green-600 text-lg sm:text-3xl mb-1 sm:mb-3" />
+          
+          <h2 className="font-bold text-base sm:text-3xl lg:text-4xl text-gray-900">
+            {inView ? <CountUp end={10} suffix="+" duration={3} /> : 0}
           </h2>
-          <p className="text-[10px] sm:text-sm lg:text-base mt-1 opacity-90 font-medium">
+
+          <p className="text-[11px] sm:text-sm lg:text-base text-gray-500 mt-1">
             Services
           </p>
         </div>
 
         {/* Projects */}
-        <div className="py-3 sm:p-5 rounded-2xl hover:scale-105 transition duration-300
-                        md:flex md:flex-col md:justify-center md:items-center">
-          <FaProjectDiagram className="mx-auto text-orange-500 text-base sm:text-3xl mb-1 sm:mb-2" />
-          <h2 className="font-extrabold text-sm sm:text-3xl lg:text-4xl leading-tight">
-            <span className="bg-linear-to-r from-orange-400 via-red-500 to-pink-600 text-transparent bg-clip-text">
-              <CountUp end={1500} suffix="+" duration={3} />
-            </span>
+        <div className="bg-white rounded-xl p-3 sm:p-6  transition ">
+          <FaProjectDiagram className="mx-auto text-orange-500 text-lg sm:text-3xl mb-1 sm:mb-3" />
+          
+          <h2 className="font-bold text-base sm:text-3xl lg:text-4xl text-gray-900">
+            {inView ? <CountUp end={1500} suffix="+" duration={3} /> : 0}
           </h2>
-          <p className="text-[10px] sm:text-sm lg:text-base mt-1 opacity-90 font-medium">
+
+          <p className="text-[11px] sm:text-sm lg:text-base text-gray-500 mt-1">
             Projects
           </p>
         </div>

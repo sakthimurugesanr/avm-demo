@@ -5,10 +5,12 @@
 body {
   font-family: "Inter", "Poppins", "Arial", sans-serif;
 }
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -19,8 +21,9 @@ body {
   background-size: cover;
   background-position: center;
 }
+
 .animate-scroll {
-  animation: scroll 20s linear infinite;
+  animation: scroll 10s linear infinite;
 }
 
 .hover\:pause-scroll:hover {
@@ -50,7 +53,13 @@ body {
   border-radius: 10px;
   display: inline-block;
   white-space: nowrap;
+
+}
+
+* {
+  font-family: 'Noto Sans', 'Montserrat', 'Elms Sans', sans-serif;
   
+
 }
 
 .nav-link {
@@ -62,24 +71,34 @@ body {
 
 /* Animations */
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes scroll-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* Apply Animations */
 .animate-left {
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 70s linear infinite;
 }
 
 .animate-right {
-  animation: scroll-right 30s linear infinite;
+  animation: scroll-right 70s linear infinite;
 }
 
 
 
-@import "tailwindcss" 
+@import "tailwindcss"

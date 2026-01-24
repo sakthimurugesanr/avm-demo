@@ -25,15 +25,15 @@ export const Content = () => {
 
       <div>
         <HeroSlider />
-        <StatsSection />
-        <OurServices />
         <WhatWeOffer />
-        <OurPromise/>
         <InfrastructureSlider/>
-        {/* <OfferForElectro/> */}
-        {/* <WhatWeOffer/> */}
         <AboutUs />
         <OurProducts />
+        <OurPromise />
+        <OurServices />
+        {/* <OfferForElectro/> */}
+        {/* <WhatWeOffer/> */}
+        <StatsSection />
         {/* <VideoSection/> */}
         {/* <ImageGallery/> */}
         {/* <ClientShorts /> */}

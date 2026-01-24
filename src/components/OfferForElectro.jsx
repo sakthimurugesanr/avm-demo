@@ -13,7 +13,7 @@ useEffect(() => {
   return (
 
 
-    <section data-aos="fade-left" className="bg-blue-100 lg:rounded-r-full py-16 my-[100px] text-black">
+    <section data-aos="fade-left" className="bg-blue-100 lg:rounded-r-full py-10 my-[100px] text-black">
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
 
         {/* Text Section */}
@@ -28,10 +28,10 @@ useEffect(() => {
           />
         </div>
 
-          <div>
+          <div className="uppercase">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">AVM Religious Works</h2>
 
-          <p className="text-lg leading-relaxed mb-4">
+          <p className=" text-lg leading-relaxed mb-4 ">
             Our Electro Plating is one of the top listed services. We use
             high-power machinery and high-quality chemical coating methods.
             Our coating process doubles the lifetime and strength of the products

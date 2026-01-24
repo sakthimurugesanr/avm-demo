@@ -53,10 +53,10 @@ const OurPromise = () => {
 
         {/* Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+          <h2 className="text-xs md:text-4xl font-bold text-blue-900 mb-4">
             Our Promise
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed">
+          <p className="text-gray-700 text-md leading-relaxed">
             We deliver dependable solutions for all your business needs,
             maintaining the highest standards and honoring every commitment
             made to our customers.
@@ -70,9 +70,9 @@ const OurPromise = () => {
               key={index}
               data-aos="fade-right"
               className="
-                bg-white
+                bg-blue-50
                 rounded-xl
-                p-6
+                p-2
                 shadow-sm
                 border border-blue-100
                 hover:shadow-md
@@ -80,16 +80,16 @@ const OurPromise = () => {
               "
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-blue-100 text-blue-700 text-xl">
+                <div className="w-12 h-11 flex items-center justify-center rounded-lg bg-blue-100 text-blue-700 text-xl">
                   {item.icon}
                 </div>
 
-                <h3 className="text-xl font-semibold text-blue-900">
+                <h3 className="text-sm md:text-lg font-semibold text-blue-900">
                   {item.title}
                 </h3>
               </div>
 
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-sm md:text-lg text-gray-600 leading-relaxed">
                 {item.desc}
               </p>
             </div>

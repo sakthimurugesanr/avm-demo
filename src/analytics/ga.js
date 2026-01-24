@@ -1,0 +1,20 @@
+import ReactGA from "react-ga4";
+
+export const initGA = () => {
+  ReactGA.initialize(import.meta.env.VITE_GA_ID || `G-BTN493DEK6`);
+};
+
+export const trackPageView = (page) => {
+  ReactGA.send({
+    hitType: "pageview",
+    page
+  });
+};
+
+export const trackEvent = (category, action, label = "") => {
+  ReactGA.event({
+    category,
+    action,
+    label
+  });
+};

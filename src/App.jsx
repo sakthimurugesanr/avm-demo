@@ -8,11 +8,17 @@ import HeroSlider from './components/Hero'
 import { Content } from './components/main/Content'
 import AllServices from './components/pages/AllServices'
 import About from './components/pages/About'
+import { initGA } from './analytics/ga'
+import PageTracker from './tracker/PageTracker'
 
 const App = () => {
+initGA()
+
+  //G-BTN493DEK6
   return (
     <div>
       <BrowserRouter>
+       <PageTracker />
         <Routes>
           <Route element={<Layout/>}>
             <Route path='/' element={<Content />} />

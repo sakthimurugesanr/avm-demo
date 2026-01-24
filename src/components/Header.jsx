@@ -3,8 +3,11 @@ import logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { HiMenu } from "react-icons/hi";
+import { trackEvent } from "../analytics/ga";
 
 const Header = ({ onContactClick }) => {
+
+
   const [open, setOpen] = useState(false);
   const [showDesktopServices, setShowDesktopServices] = useState(false);
   const [showMobileServices, setShowMobileServices] = useState(false);
@@ -43,8 +46,14 @@ const Header = ({ onContactClick }) => {
       {/* HEADER BAR */}
       <header className="container mx-auto flex items-center justify-between px-4 py-2">
         {/* Logo */}
-        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <img src={logo} alt="logo" className="w-[110px]" />
+        <Link
+          to="/"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            trackEvent("Home", "CTA Clicked", "Get Started");
+          }}
+        >
+          <img src={logo} alt="logo" className="w-[70px]" />
         </Link>
 
         {/* DESKTOP MENU */}
@@ -52,7 +61,13 @@ const Header = ({ onContactClick }) => {
           {/* SERVICES DROPDOWN */}
           <li className="relative">
             <button
-              onClick={() => setShowDesktopServices(!showDesktopServices)}
+              onClick={() => {
+                trackEvent("Services", "services Clicked", "All Services");
+
+                setShowDesktopServices(!showDesktopServices)
+
+
+              }}
               className="flex items-center gap-1 hover:text-gray-200 transition-colors duration-200"
             >
               Services {showDesktopServices ? <IoIosArrowUp /> : <IoIosArrowDown />}
@@ -61,7 +76,7 @@ const Header = ({ onContactClick }) => {
             {showDesktopServices && (
               <div className="absolute left-0 mt-3 w-80 bg-blue-900 border border-blue-700 rounded-lg shadow-xl p-4 z-50">
                 {/* Religious Works */}
-                <h4 className="text-sm font-semibold mb-2 text-blue-200">Religious Works</h4>
+                <h4 className="text-sm font-semibold mb-2 text-blue-800">Religious Works</h4>
                 <ul className="space-y-1 text-sm mb-3">
                   {religiousWorks.map((item, i) => (
                     <li
@@ -75,9 +90,27 @@ const Header = ({ onContactClick }) => {
                 </ul>
 
                 {/* Electro Plating */}
-                <h4 className="text-sm font-semibold border-t border-blue-700 pt-2 text-blue-200">
-                  Electro Plating
-                </h4>
+
+                <div className="flex justify-start items-center">
+
+                  <h4 className="text-sm font-semibold border-t border-blue-700 pt-2 text-blue-200">
+                    Electro Plating
+                  </h4>
+                  <span
+                    className="
+      text-[9px] sm:text-[10px]
+      font-bold
+      text-white
+      bg-red-500
+      px-2 py-[2px]
+      rounded-full
+      uppercase
+      leading-none
+    "
+                  >
+                    New
+                  </span>
+                </div>
                 <ul className="space-y-1 text-sm">
                   {electroPlating.map((item, i) => (
                     <li
@@ -95,15 +128,25 @@ const Header = ({ onContactClick }) => {
 
           <Link
             to="/about"
-            style={{textDecoration:"none"}}
+            style={{ textDecoration: "none" }}
             className="hover:text-gray-200 no-underline text-white"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" })
+              trackEvent("About", "About Clicked", "About");
+
+
+            }}
           >
             About
           </Link>
 
           <button
-            onClick={onContactClick}
+            onClick={() => {
+
+              onContactClick
+              trackEvent("Contact", "Contact Clicked", "Contact");
+
+            }}
             className="hover:text-gray-200 transition-colors duration-200"
           >
             Contact
@@ -112,46 +155,73 @@ const Header = ({ onContactClick }) => {
 
         {/* MOBILE HAMBURGER */}
         <button className="md:hidden text-4xl" onClick={() => setOpen(true)}>
-          <HiMenu  className="text-4xl"/>
+          <HiMenu className="text-4xl" />
         </button>
       </header>
 
       {/* MOBILE TOP-DOWN DRAWER */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-blue-900 z-50 transform transition-transform duration-300 overflow-y-auto ${
-          open ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={`fixed inset-0 z-50 bg-blue-900 transform transition-transform duration-300 overflow-y-auto ${open ? "translate-y-0" : "-translate-y-full"
+          }`}
       >
-        {/* Drawer Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-blue-800">
-          <img src={logo} className="w-[90px]" alt="logo" />
-          <button className="text-3xl" onClick={() => setOpen(false)}>
+        {/* Header */}
+        <div className="flex items-center justify-between px-4 py-3 border-b">
+          <img src={logo} className="w-[45px] sm:w-[70px]" alt="logo" />
+          <button
+            className="text-2xl text-white hover:text-black"
+            onClick={() => setOpen(false)}
+          >
             ✕
           </button>
         </div>
 
-        {/* Drawer Content */}
-        <div className="px-6 py-6 space-y-6">
-          {/* Services Mobile */}
+        {/* Content */}
+        <div className="px-4 py-6 flex flex-col items-center space-y-6">
+          {/* Services Toggle */}
           <button
             onClick={() => setShowMobileServices(!showMobileServices)}
-            className="w-full flex justify-center items-center text-lg font-medium"
+            className="w-full max-w-xs flex justify-between items-center text-base font-medium text-gray-100 border-b pb-2"
           >
-            Services {showMobileServices ? <IoIosArrowUp /> : <IoIosArrowDown />}
-          </button>
 
+            Services
+            {showMobileServices ? (
+              <IoIosArrowUp className="text-lg" />
+            ) : (
+              <IoIosArrowDown className="text-lg" />
+            )}
+          </button>
+          <span
+            className="
+      text-[9px] sm:text-[10px]
+      font-bold
+      text-white
+      bg-red-500
+      px-2
+      top-23
+      left-5
+      absolute
+      rounded-full
+      uppercase
+      leading-none
+    "
+          >
+            New
+          </span>
+
+          {/* Services List */}
           {showMobileServices && (
-            <div className="bg-blue-800 rounded-lg p-4 space-y-5">
+            <div className="w-full  bg-blue-900 rounded-xl p-4 space-y-6">
+              {/* Religious Works */}
               <div>
-                <h4 className="text-xs font-semibold text-blue-200 mb-2 text-center">
+                <h4 className="flex  text-start -ml-5 items-center justify-center gap-2 mb-3 uppercase">
                   Religious Works
                 </h4>
-                <ul className="space-y-2 text-sm text-center">
+                <ul className="space-y-2 text-sm text-start">
                   {religiousWorks.map((item, i) => (
                     <li
                       key={i}
                       onClick={() => handleServiceClick(item)}
-                      className="py-2 rounded hover:bg-blue-700 cursor-pointer transition-colors duration-200 border"
+                      className="py-2 rounded-md  hover:bg-gray-100 cursor-pointer"
                     >
                       {item}
                     </li>
@@ -159,16 +229,36 @@ const Header = ({ onContactClick }) => {
                 </ul>
               </div>
 
-              <div className="border-t border-blue-700 pt-4">
-                <h4 className="text-xs font-semibold text-blue-200 mb-2 text-center">
+              {/* Electro Plating */}
+              <div className="border-t pt-4">
+                <h4 className="flex items-center justify-center gap-2 mb-3 text-center uppercase">
+                  {/* <span className="text-xs  text-gray-100 mb-3 text-center uppercase"> */}
                   Electro Plating
+
+
+                  {/* NEW Tag */}
+                  <span
+                    className="
+      text-[9px] sm:text-[10px]
+      font-bold
+      text-white
+      bg-red-500
+      px-2 py-[2px]
+      rounded-full
+      uppercase
+      leading-none
+    "
+                  >
+                    New
+                  </span>
                 </h4>
-                <ul className="space-y-2 text-sm text-center">
+
+                <ul className="space-y-2 text-sm text-start">
                   {electroPlating.map((item, i) => (
                     <li
                       key={i}
                       onClick={() => handleServiceClick(item)}
-                      className="py-2 rounded hover:bg-blue-700 cursor-pointer transition-colors duration-200 border"
+                      className="py-2 rounded-md  hover:bg-gray-900 cursor-pointer"
                     >
                       {item}
                     </li>
@@ -178,15 +268,17 @@ const Header = ({ onContactClick }) => {
             </div>
           )}
 
+          {/* Links */}
           <Link
             to="/about"
-                        style={{textDecoration:"none"}}
-
-            className="hover:text-gray-200 text-white no-underline block text-lg text-center pt-3"
             onClick={() => {
               setOpen(false);
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
+            className=" w-full max-w-xs flex justify-between items-center text-base font-medium text-start m-6  hover:text-black no-underline text-white"
+            style={{ textDecoration: "none" }}
+
+
           >
             About
           </Link>
@@ -194,14 +286,17 @@ const Header = ({ onContactClick }) => {
           <button
             onClick={() => {
               onContactClick();
+
               setOpen(false);
             }}
-            className="block text-lg text-center hover:text-blue-200 pt-3 w-full"
+            className=" w-full max-w-xs flex justify-between items-center hover:text-black text-white"
           >
             Contact
           </button>
         </div>
       </div>
+
+
 
       {/* OVERLAY */}
       {open && (

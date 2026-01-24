@@ -21,9 +21,9 @@ export default function Footer() {
       >
         {/* Contact */}
         <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-lg font-semibold mb-4">Contact Us</h2>
+          <h2 className="text-lg font-semibold mb-4 text-orange-600 ">Contact Us</h2>
 
-          <p className="flex items-center gap-2 mb-2">
+          <p className="flex items-center gap-2 mb-2 text-white">
             <FaPhoneAlt />
             Pavithran:
             <a href="tel:9944066321" className="underline">
@@ -52,7 +52,7 @@ export default function Footer() {
 
         {/* Address */}
         <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-lg font-semibold mb-4">Our Location</h2>
+          <h2 className="text-lg font-semibold mb-4 text-orange-600">Our Location</h2>
 
           <p className="flex items-start gap-2 text-sm leading-relaxed">
             <FaMapMarkerAlt className="mt-1" />
@@ -68,7 +68,7 @@ export default function Footer() {
 
         {/* Working Hours */}
         <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-lg font-semibold mb-4">Working Hours</h2>
+          <h2 className="text-lg font-semibold mb-4 text-orange-600">Working Hours</h2>
           <p className="text-sm opacity-90">
             Monday – Sunday
             <br />
@@ -80,7 +80,7 @@ export default function Footer() {
 
         {/* Social */}
         <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-lg font-semibold mb-4">Follow Us</h2>
+          <h2 className="text-lg font-semibold mb-4 text-orange-600">Follow Us</h2>
 
           <div className="flex items-center justify-center md:justify-start gap-5 text-2xl">
             <a

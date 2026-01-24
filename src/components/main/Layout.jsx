@@ -5,6 +5,7 @@ import Footer from '../Footer'
 import WhatsAppButton from '../WhatsApp'
 import FloatingActionButtons from '../FloatingButton'
 import { Info } from './Info'
+import ScrollToTop from '../ScrollToTop'
 
 const Layout = () => {
   
@@ -19,6 +20,8 @@ const Layout = () => {
       <Info/>
         <Header onContactClick={scrollToContact}/>
 <FloatingActionButtons/>
+      <ScrollToTop />
+
         <Outlet context={{contactRef}}/>
         <Footer/>
     </div>

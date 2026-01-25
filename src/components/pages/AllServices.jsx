@@ -6,8 +6,8 @@ import service from '../../assets/service1.jpg'
 import cross from "../../assets/cross/cross.webp";
 import dwajasthambam1 from "../../assets/dwajasthambam/dwajasthambam1.webp";
 import dwajasthambam2 from "../../assets/dwajasthambam/dwajasthambam2.webp";
-import flagpole from "../../assets/flagpole/flagpole2.webp";
-import flagpole2 from "../../assets/flagpole/flagpole3.webp";
+import flagpol from "../../assets/flagpole/flagpole2.webp";
+import flagpole from "../../assets/flagpole/flagpole3.webp";
 import flagpole3 from "../../assets/flagpole/flagpole4.webp";
 import flagpole4 from "../../assets/flagpole/flag1.webp";
 import kalasam from "../../assets/kalasam/kalasam.webp";

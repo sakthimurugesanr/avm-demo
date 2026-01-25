@@ -3,6 +3,7 @@ import { Link, useOutletContext } from "react-router-dom";
 import { FaIndustry, FaBullseye, FaEye, FaCheckCircle } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import aboutimage from '../../assets/about.jpg'
 import "swiper/css";
 import "swiper/css/pagination";
 import ContactSection from "../ContactSection";
@@ -61,7 +62,7 @@ const AboutUs = () => {
       {/* HERO SECTION */}
       <section className="relative w-full h-[300px] md:h-[380px] flex items-center justify-center">
         <img
-          src="https://picsum.photos/1600/600?industry"
+          src={aboutimage}
           alt="About Background"
           className="absolute inset-0 w-full h-full object-cover"
         />

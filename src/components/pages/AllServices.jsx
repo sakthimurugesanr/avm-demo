@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import service from '../../assets/service1.jpg'
 
 import cross from "../../assets/cross/cross1.webp";
 import dwajasthambam1 from "../../assets/dwajasthambam/dwajasthambam1.webp";
@@ -182,7 +183,7 @@ This donation box perfectly blends functionality, security, and timeless artistr
             <section className="relative w-full h-[260px] sm:h-[300px] md:h-[380px] flex items-center justify-center">
                 {/* Background Image */}
                 <img
-                    src="https://picsum.photos/1600/600?industry"
+                    src={service}
                     alt="AVM Services Background"
                     className="absolute inset-0 w-full h-full object-cover"
                 />

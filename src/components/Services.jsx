@@ -42,7 +42,7 @@ const row2 = [
   "Brass Church Cross",
   "Brass Diya",
   "Brass Hand Bell",
-  "Temple Dwajashthambam",
+  "Temple Dwajashthambam",  
   "Steel Donation Box",
    "Brass Church Cross",
   "Golden Brass Flag Light",

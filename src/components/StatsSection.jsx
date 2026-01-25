@@ -15,7 +15,7 @@ export default function StatsSection() {
       <div className="max-w-6xl mx-auto grid grid-cols-3 gap-4 sm:gap-8 px-4 text-center">
 
         {/* Clients */}
-        <div className="bg-white rounded-xl p-3 sm:p-6  transition ">
+        <div className=" rounded-xl p-3 sm:p-6  transition ">
           <FaUsers className="mx-auto text-blue-600 text-lg sm:text-3xl mb-1 sm:mb-3" />
           
           <h2 className="font-bold text-base sm:text-3xl lg:text-4xl text-gray-900">

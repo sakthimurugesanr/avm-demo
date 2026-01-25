@@ -44,7 +44,7 @@ const WhatWeOffer = () => {
 
   return (
     <section
-      data-aos="fade-in"
+      
       className="bg-blue-50 py-10 sm:py-12 md:py-16 text-black"
     >
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center rounded-2xl">

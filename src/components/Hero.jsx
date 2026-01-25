@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import church from '../assets/avm_church-2.jpg'
 import church2 from '../assets/avm_church.jpg'
+import { toast } from "sonner";
 
-const HeroSlider = () => {
+const HeroSlider = () => { 
+  
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("avm_welcome_shown");
+
+    if (!hasVisited) {
+      toast.success("Welcome to AVM Metal 👋", {
+        description: "We’re glad to have you here.",
+        duration: 4000,
+      });
+
+      localStorage.setItem("avm_welcome_shown", "true");
+    }
+  }, []);
+
+
   return (
     <div id="heroSlider" className="carousel slide" data-bs-ride="carousel">
       

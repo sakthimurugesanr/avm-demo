@@ -10,6 +10,7 @@ import AllServices from './components/pages/AllServices'
 import About from './components/pages/About'
 import { initGA } from './analytics/ga'
 import PageTracker from './tracker/PageTracker'
+import { Toaster } from 'sonner'
 
 const App = () => {
 initGA()
@@ -18,7 +19,11 @@ initGA()
   return (
     <div>
       <BrowserRouter>
-       <PageTracker />
+        <Toaster
+          theme="dark"
+          position="top-right"
+          richColors
+        />       <PageTracker />
         <Routes>
           <Route element={<Layout/>}>
             <Route path='/' element={<Content />} />

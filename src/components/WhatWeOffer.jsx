@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import cross from '../assets/cross/cross1.webp';
+import cross from '../assets/cross/cross.webp';
 import dwajasthambam1 from '../assets/dwajasthambam/dwajasthambam1.webp';
 import dwajasthambam2 from '../assets/dwajasthambam/dwajasthambam2.webp';
 import flagpole from '../assets/flagpole/flagpole2.webp';

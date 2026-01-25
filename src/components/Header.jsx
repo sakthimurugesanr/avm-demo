@@ -143,7 +143,7 @@ const Header = ({ onContactClick }) => {
           <button
             onClick={() => {
 
-              onContactClick
+              onContactClick()
               trackEvent("Contact", "Contact Clicked", "Contact");
 
             }}

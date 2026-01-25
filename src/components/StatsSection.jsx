@@ -11,7 +11,7 @@ export default function StatsSection() {
   });
 
   return (
-    <section className="w-full bg-gray-50 py-6 sm:py-10" ref={ref}>
+    <section className="w-full  py-6 sm:py-10" ref={ref}>
       <div className="max-w-6xl mx-auto grid grid-cols-3 gap-4 sm:gap-8 px-4 text-center">
 
         {/* Clients */}

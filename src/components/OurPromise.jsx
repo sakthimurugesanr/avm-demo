@@ -64,37 +64,48 @@ const OurPromise = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {promises.map((item, index) => (
-            <div
-              key={index}
-              data-aos="fade-right"
-              className="
-                bg-blue-50
-                rounded-xl
-                p-2
-                shadow-sm
-                border border-blue-100
-                hover:shadow-md
-                transition
-              "
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-11 flex items-center justify-center rounded-lg bg-blue-100 text-blue-700 text-xl">
-                  {item.icon}
-                </div>
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  {promises.map((item, index) => (
+    <div
+      key={index}
+      data-aos="fade-right"
+      className="
+        relative overflow-hidden
+        bg-blue-50
+        rounded-xl
+        p-2
+        shadow-sm
+        border border-blue-100
+        hover:shadow-md
+        transition
+      "
+    >
+      {/* ── Corner dot decoration ── */}
+      <div className="absolute top-3 right-3 flex items-center gap-1">
+        <div className="w-1.5 h-1.5 rounded-full bg-blue-200" />
+        <div className="w-2.5 h-2.5 rounded-full bg-blue-300" />
+        <div className="w-1.5 h-1.5 rounded-full bg-blue-200" />
+      </div>
 
-                <h3 className="text-sm md:text-lg font-semibold text-blue-900">
-                  {item.title}
-                </h3>
-              </div>
+      {/* ── Bottom-right large bubble ── */}
+      <div className="absolute bottom-0 right-0 w-16 h-16 rounded-tl-full bg-blue-100 opacity-60" />
 
-              <p className="text-sm md:text-lg text-gray-600 leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+      <div className="flex items-center gap-4 mb-4">
+        <div className="w-12 h-11 flex items-center justify-center rounded-lg bg-blue-100 text-blue-700 text-xl">
+          {item.icon}
         </div>
+
+        <h3 className="text-sm md:text-lg font-semibold text-blue-900">
+          {item.title}
+        </h3>
+      </div>
+
+      <p className="text-sm md:text-lg text-gray-600 leading-relaxed relative z-10">
+        {item.desc}
+      </p>
+    </div>
+  ))}
+</div>
 
       </div>
     </section>

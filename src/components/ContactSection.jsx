@@ -42,27 +42,39 @@ const ContactSection = () => {
     setLoading(true);
 
     try {
-      contactSchema.parse(formData);
+     // ── Step 1: Zod validation ──
+     contactSchema.parse(formData);
+   } catch (validationError) {
+     // ZodError always has .errors array
+     if (validationError instanceof ZodError) {
+       validationError.errors.forEach((err) => toast.error(err.message));
+     } else {
+       toast.error("Validation failed. Please check your inputs.");
+     }
+     setLoading(false);
+     return; // ← stop here, don't submit
+   }
 
-      const res = await fetch(GOOGLE_SHEET_API, {
-        method: "POST",
-        body: JSON.stringify(formData),
-      });
+    try {
+    // ── Step 2: Submit to Google Sheet ──
+     const res = await fetch(GOOGLE_SHEET_API, {
+       method: "POST",
+      headers: { "Content-Type": "text/plain" }, // ← fixes CORS on Google Apps Script
+      body: JSON.stringify(formData),
+    });
 
-      const data = await res.json();
+     const data = await res.json();
 
-      if (data.success) {
-        toast.success("Successfully registered!");
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      } else {
-        toast.error("Something went wrong with submission");
-      }
-    } catch (error) {
-      if (error instanceof ZodError) {
-        error.errors.forEach((err) => toast.error(err.message));
-      } else {
-        toast.error("Failed to submit form");
-      }
+     if (data.success) {
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } else {
+      toast.error("Submission failed. Please try again.");
+    }
+    } catch (networkError) {
+      // plain Error object — no .errors array
+      console.error("Network error:", networkError);
+      toast.error("Could not send message. Please check your connection.");
     } finally {
       setLoading(false);
     }

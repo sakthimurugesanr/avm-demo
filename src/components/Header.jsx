@@ -371,7 +371,7 @@ const Header = ({ onContactClick }) => {
   };
 
   return (
-    <div className="sticky top-0 z-50 bg-blue-900 text-white shadow-lg">
+    <div className="sticky top-0 z-50 bg-[#0e2630] text-white ">
 
       {/* ── HEADER BAR ── */}
       <header className="container mx-auto flex items-center justify-between px-4 py-2">

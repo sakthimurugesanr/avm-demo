@@ -686,8 +686,8 @@ import ReadMoreText from "./Readmore";
 
 // ─── Category Badge ───────────────────────────────────────────────
 const CategoryBadge = ({ label }) => (
-    <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/40 text-amber-600 text-[10px] lg:text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
-        <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+    <div className="inline-flex items-center gap-2 bg-amber-500/10 border  text-amber-600 text-[10px] lg:text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
+        <span className="w-1.5 h-1.5 rounded-full" />
         {label}
     </div>
 );
@@ -730,7 +730,7 @@ const ServiceCard = ({ item, index, badge }) => {
             className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-amber-100"
         >
             {/* Gold top bar */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-600 z-10" />
+            <div className="absolute top-0 left-0 right-0 h-1 " />
 
             <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}>
 
@@ -750,7 +750,7 @@ const ServiceCard = ({ item, index, badge }) => {
                         alt={item.title}
                         loading="lazy"
                         className="
-      absolute inset-0
+            bsolute inset-0
       w-full h-full
       object-cover
       transition-transform duration-700
@@ -765,9 +765,9 @@ const ServiceCard = ({ item, index, badge }) => {
                     />
 
                     {/* Number badge */}
-                    <div className="absolute top-3 left-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-xs shadow-lg z-10">
+                    {/* <div className="absolute top-3 left-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-xs shadow-lg z-10">
                         {String(index + 1).padStart(2, "0")}
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* ── Content ── */}
@@ -776,6 +776,7 @@ const ServiceCard = ({ item, index, badge }) => {
                     <h3 className="text-lg sm:text-xl md:text-2xl lg:text-lg xl:text-xl font-bold text-slate-800 mb-2 leading-snug">
                         {item.title}
                     </h3>
+
                     <div className="w-8 h-0.5 bg-amber-400 mb-3 group-hover:w-14 transition-all duration-500" />
                     <div className="text-slate-600 text-sm lg:text-[13px] leading-relaxed">
                         <ReadMoreText text={item.desc} maxLength={280} />

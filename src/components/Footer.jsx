@@ -10,7 +10,7 @@ import indiamart from "../assets/indmart.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-10 ">
+    <footer className="bg-[#0e2630] text-white py-10 ">
       <div
         className="
           max-w-7xl mx-auto
@@ -78,7 +78,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Social */}
         <div className="flex flex-col items-center md:items-start">
           <h2 className="text-lg font-semibold mb-4 text-orange-600">Follow Us</h2>
 
@@ -121,7 +120,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom */}
       <div className="text-center text-gray-400 text-xs mt-8 px-4">
         © {new Date().getFullYear()} AVM Electroplating. All Rights Reserved.
       </div>

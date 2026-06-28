@@ -36,15 +36,15 @@ const WhatWeOffer = () => {
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % images.length);
         setFade(false);
-      }, 400); // fade duration
-    }, 4000); // change image every 4 sec
+      }, 400);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section
-      
+
       className="bg-blue-50 py-10 sm:py-12 md:py-16 text-black"
     >
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center rounded-2xl">
@@ -75,9 +75,8 @@ const WhatWeOffer = () => {
           <img
             src={images[index]}
             alt="Electro Plating"
-            className={`rounded-xl w-full max-w-md h-[300px] sm:h-[350px] md:h-[400px] object-cover shadow-md transition-opacity duration-500 ease-in-out ${
-              fade ? "opacity-0" : "opacity-100"
-            }`}
+            className={`rounded-xl w-full max-w-md h-[300px] sm:h-[350px] md:h-[400px] object-cover shadow-md transition-opacity duration-500 ease-in-out ${fade ? "opacity-0" : "opacity-100"
+              }`}
           />
         </div>
       </div>

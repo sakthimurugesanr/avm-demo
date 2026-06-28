@@ -1,41 +1,37 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
-// import Header from './components/Header'
-// import Testone from './components/Testone'
-// import TestTwo from './components/TestTwo'
-import Layout from './components/main/Layout'
-import HeroSlider from './components/Hero'
-import { Content } from './components/main/Content'
-import AllServices from './components/pages/AllServices'
-import About from './components/pages/About'
+import React, { Suspense, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ErrorBoundary from './components/ErrorBoundary'
+import { Toaster } from 'sonner'
 import { initGA } from './analytics/ga'
 import PageTracker from './tracker/PageTracker'
-import { Toaster } from 'sonner'
+
+const Layout = React.lazy(() => import('./components/main/Layout'))
+const Content = React.lazy(() => import('./components/main/Content'))
+const AllServices = React.lazy(() => import('./components/pages/AllServices'))
+const About = React.lazy(() => import('./components/pages/About'))
 
 const App = () => {
-initGA()
+  useEffect(() => {
+    initGA()
+  }, [])
 
-  //G-BTN493DEK6
   return (
-    <div>
+    <ErrorBoundary>
       <BrowserRouter>
-        <Toaster
-          theme="dark"
-          position="top-right"
-          richColors
-        />       <PageTracker />
-        <Routes>
-          <Route element={<Layout/>}>
-            <Route path='/' element={<Content />} />
-            {/* <Route path='/test' element={<TestTwo />} /> */}
-            <Route path='/services' element={<AllServices/>}/>
-            <Route path='/about' element={<About/>}/>
-          </Route>
-        </Routes>
-
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-950 text-white">Loading application...</div>}>
+          <Toaster theme="dark" position="top-right" richColors />
+          <PageTracker />
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Content />} />
+              <Route path="/services" element={<AllServices />} />
+              <Route path="/about" element={<About />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </BrowserRouter>
-    </div>
+    </ErrorBoundary>
   )
 }
 
-export default App    
+export default App

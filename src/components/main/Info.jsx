@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaPhoneAlt,FaEnvelope } from 'react-icons/fa'
+import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 
 export const Info = () => {
   return (
@@ -8,7 +8,7 @@ export const Info = () => {
 
         {/* Email */}
         <div className="flex justify-center items-center text-center  gap-1 mt-[-15px]">
-            <FaEnvelope/>
+          <FaEnvelope />
           <a
             href="mailto:avmelectroplating@gmail.com"
             className="underline mt-[-3px]"

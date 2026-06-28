@@ -60,11 +60,9 @@ export default function ImageGallery() {
         ))}
       </div>
 
-      {/* Lightbox */}
       {currentIndex !== null && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
 
-          {/* Close Button */}
           <button
             className="absolute top-6 right-6 text-white text-3xl"
             onClick={closeLightbox}
@@ -72,7 +70,6 @@ export default function ImageGallery() {
             <FaTimes />
           </button>
 
-          {/* Prev Button */}
           <button
             className="absolute left-6 text-white text-4xl"
             onClick={prevImage}
@@ -80,7 +77,6 @@ export default function ImageGallery() {
             <FaChevronLeft />
           </button>
 
-          {/* Next Button */}
           <button
             className="absolute right-6 text-white text-4xl"
             onClick={nextImage}
@@ -88,14 +84,12 @@ export default function ImageGallery() {
             <FaChevronRight />
           </button>
 
-          {/* Image */}
           <img
             src={images[currentIndex]}
             className="max-w-[90%] max-h-[80%] rounded-lg"
             style={{ transform: `scale(${zoom})`, transition: "0.2s" }}
           />
 
-          {/* Zoom Controls */}
           <div className="absolute bottom-10 flex gap-6 text-white text-3xl">
             <button onClick={zoomOut}>
               <FaSearchMinus />

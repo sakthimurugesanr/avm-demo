@@ -1,175 +1,72 @@
-// import React, { useEffect } from "react";
-// import church from "../assets/banner/bg-banner.png";
-// import church2 from "../assets/banner/bg-2.png";
-// import { toast } from "sonner";
+import React, { useEffect, memo } from 'react'
+import laptopchurch from '../assets/banner/ban-res/oe-test/bg-laptop.webp'
+import churctabbanner from '../assets/banner/ban-res/oe-test/bg-tab.webp'
+import mobilebanner from '../assets/banner/ban-res/oe-test/bg-mobile.webp'
 
-// const HeroSlider = () => {
-//   useEffect(() => {
-//     const hasVisited = localStorage.getItem("avm_welcome_shown");
+import image2forlaptop from '../assets/banner/ban-res/oe-electro/bg-laptop.webp'
+import image2formmobile from '../assets/banner/ban-res/oe-electro/bg-mobile.webp'
+import image2fortab from '../assets/banner/ban-res/oe-electro/bg-tab.webp'
 
-//     if (!hasVisited) {
-//       toast.success("Welcome to AVM Metal 👋", {
-//         description: "We’re glad to have you here.",
-//         duration: 4000,
-//       });
+import { toast } from 'sonner'
 
-//       localStorage.setItem("avm_welcome_shown", "true");
-//     }
-//   }, []);
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination } from 'swiper/modules'
 
-//   return (
-//     <div
-//       id="heroSlider"
-//       className="carousel slide w-full"
-//       data-bs-ride="carousel"
-//       data-bs-interval="3000"
-//       data-bs-pause="false"
-//     >
-//       {/* Indicators */}
-//       <div className="carousel-indicators">
-//         <button
-//           type="button"
-//           data-bs-target="#heroSlider"
-//           data-bs-slide-to="0"
-//           className="active"
-//         ></button>
-//         <button
-//           type="button"
-//           data-bs-target="#heroSlider"
-//           data-bs-slide-to="1"
-//         ></button>
-//       </div>
-
-//       {/* Slides */}
-//       <div className="carousel-inner">
-
-//         <div className="carousel-item active">
-//           <div className="w-full ">
-//             <img
-//               src={church}
-//               alt="Banner 1"
-//               className="w-full h-full object-contain"
-//             />
-//           </div>
-//         </div>
-
-//         <div className="carousel-item">
-//           <div className="w-full ">
-//             <img
-//               src={church2}
-//               alt="Banner 2"
-//               className="w-full h-full object-contain"
-//             />
-//           </div>
-//         </div>
-
-//       </div>
-
-//       {/* Controls */}
-//       <button
-//         className="carousel-control-prev"
-//         type="button"
-//         data-bs-target="#heroSlider"
-//         data-bs-slide="prev"
-//       >
-//         <span className="carousel-control-prev-icon"></span>
-//       </button>
-
-//       <button
-//         className="carousel-control-next"
-//         type="button"
-//         data-bs-target="#heroSlider"
-//         data-bs-slide="next"
-//       >
-//         <span className="carousel-control-next-icon"></span>
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default HeroSlider;
-
-import React, { useEffect } from "react";
-import church from "../assets/banner/bg-banner.png";
-import church2 from "../assets/banner/bg-2.png";
-import { toast } from "sonner";
-
-// Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
-
-// Swiper styles
-import "swiper/css";
-// import "swiper/css/navigation";
-import "swiper/css/pagination";
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 const HeroSlider = () => {
   useEffect(() => {
-    const hasVisited = localStorage.getItem("avm_welcome_shown");
+    const hasVisited = localStorage.getItem('avm_welcome_shown')
 
     if (!hasVisited) {
-      toast.success("Welcome to AVM Metal 👋", {
-        description: "We’re glad to have you here.",
+      toast.success('Welcome to AVM Metal 👋', {
+        description: 'Were glad to have you here.',
         duration: 4000,
-      });
-
-      localStorage.setItem("avm_welcome_shown", "true");
+      })
+      localStorage.setItem('avm_welcome_shown', 'true')
     }
-  }, []);
+  }, [])
 
   return (
-    <div className="w-full overflow-hidden">
-
+    <div className="full-width-section overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination]}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
-        loop={true}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        loop
         pagination={{ clickable: true }}
         className="w-full"
       >
-
-        {/* Slide 1 */}
         <SwiperSlide>
-          <div className="w-full">
+          <picture>
+            <source media="(max-width: 639px)" srcSet={mobilebanner} />
+            <source media="(max-width: 1023px)" srcSet={churctabbanner} />
             <img
-              src={church}
-              alt="AVM Banner 1"
-              className="
-                w-full
-                h-[200px]
-                sm:h-[320px]
-                md:h-[450px]
-                lg:h-[890px]
-                object-cover
-              "
+              src={laptopchurch}
+              alt="AVM Banner"
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto object-cover"
             />
-          </div>
+          </picture>
         </SwiperSlide>
 
-        {/* Slide 2 */}
         <SwiperSlide>
-          <div className="w-full">
+          <picture>
+            <source media="(max-width: 639px)" srcSet={image2formmobile} />
+            <source media="(max-width: 1023px)" srcSet={image2fortab} />
             <img
-              src={church2}
-              alt="AVM Banner 2"
-              className="
-                w-full
-                h-[200px]
-                sm:h-[320px]
-                md:h-[450px]
-                lg:h-[890px]
-                object-cover
-              "
+              src={image2forlaptop}
+              alt="AVM Electro Banner"
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto object-cover"
             />
-          </div>
+          </picture>
         </SwiperSlide>
-
       </Swiper>
     </div>
-  );
-};
+  )
+}
 
-export default HeroSlider;
+export default memo(HeroSlider)

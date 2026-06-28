@@ -6,7 +6,6 @@ const AboutUs = () => {
     <section className="bg-blue-50 py-16">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
 
-        {/* Image */}
         <div className="flex justify-center md:order-1 order-2">
           <img
             src={mechine}
@@ -15,7 +14,6 @@ const AboutUs = () => {
           />
         </div>
 
-        {/* Content */}
         <div className="md:order-2 order-1">
           <h2 className="text-md md:text-3xl font-bold mb-5 text-gray-900">
             About <span className="text-orange-600">AVM Electro Plating</span>

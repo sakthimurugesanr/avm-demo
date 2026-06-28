@@ -16,13 +16,11 @@ useEffect(() => {
     <section data-aos="fade-left" className="bg-blue-100 lg:rounded-r-full py-10 my-[100px] text-black">
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
 
-        {/* Text Section */}
       
 
-        {/* Image (You can replace with real machine image) */}
         <div className="flex justify-center " >
           <img
-            src={cross} // replace with actual image
+            src={cross} 
             alt="Electro Plating Machine"
             className="rounded-xl  w-full md:w-4/5 object-cover"
           />

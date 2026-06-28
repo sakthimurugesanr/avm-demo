@@ -33,9 +33,8 @@ export default function ScrollToTop() {
     flex items-center justify-center
     w-10 h-10
     p-2
-    rounded-full  
+    rounded
     bg-blue-900 text-white
-    shadow-lg
     transition-all duration-300
     hover:bg-black
     ${visible ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"}
